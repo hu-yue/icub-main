@@ -150,6 +150,8 @@ protected:
     inline uint32_t NormToValue(double& dVal,int feature);
     inline double ValueToNorm(uint32_t iVal,int feature);
 
+    int TRANSL(int feature);
+
     bool manage(dc1394error_t error,yarp::os::Semaphore *pToUnlock=NULL)
     {
         if (error!=DC1394_SUCCESS)
@@ -202,7 +204,7 @@ public:
     virtual bool hasFeatureDC1394(int feature);
 
     // 01
-    virtual bool setFeatureDC1394(int feature,double value);
+    virtual bool setFeatureDC1394(int feature, double value);
 
     // 02
     virtual double getFeatureDC1394(int feature);
