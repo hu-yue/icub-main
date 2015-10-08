@@ -3,8 +3,7 @@
 
  <!-- Initialization file for EMS 9 - Right Lower Leg, 2 dof -->
 
-<devices robot="iCubGenova02" build="1">
-  <device name="right_lower_leg_mc" type="embObjMotionControl">
+  <device name="right_lower_leg_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
       <xi:include href="hardware/electronics/right_lower_leg-ems9-eln.xml" itype="params"/>
       <xi:include href="hardware/mechanicals/right_lower_leg-ems9-mec.xml" itype="params"/>
@@ -59,4 +58,4 @@
     </group>
 	
   </device>
-</devices>
+

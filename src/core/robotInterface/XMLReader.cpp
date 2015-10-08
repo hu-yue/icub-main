@@ -472,10 +472,12 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevicesTag(Ti
         return readDevicesFile(filename);
     }
 
+    /*
     if (valueStr.compare("devices") != 0) {
         SYNTAX_ERROR(devicesElem->Row()) << "Expected \"devices\". Found" << valueStr;
     }
-
+    */
+    /*
     std::string robotName;
     if (devicesElem->QueryStringAttribute("robot", &robotName) != TIXML_SUCCESS) {
         SYNTAX_WARNING(devicesElem->Row()) << "\"devices\" element should contain the \"robot\" attribute";
@@ -484,7 +486,8 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevicesTag(Ti
     if (robotName != robot.name()) {
         SYNTAX_WARNING(devicesElem->Row()) << "Trying to import a file for the wrong robot. Found" << robotName << "instead of" << robot.name();
     }
-
+    */
+    /*
     unsigned int build;
 #if TINYXML_UNSIGNED_INT_BUG
     if (devicesElem->QueryUnsignedAttribute("build", &build()) != TIXML_SUCCESS) {
@@ -504,7 +507,7 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevicesTag(Ti
     if (build != robot.build()) {
         SYNTAX_WARNING(devicesElem->Row()) << "Import a file for a different robot build. Found" << build << "instead of" << robot.build();
     }
-
+    */
     DeviceList devices;
     for (TiXmlElement* childElem = devicesElem->FirstChildElement(); childElem != 0; childElem = childElem->NextSiblingElement()) {
         DeviceList childDevices = readDevices(childElem);

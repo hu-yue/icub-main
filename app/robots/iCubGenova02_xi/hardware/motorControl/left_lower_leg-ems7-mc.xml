@@ -3,8 +3,7 @@
 
  <!-- Initialization file for EMS 7 - Left Lower Leg, 2 dof -->
 
-<devices robot="iCubGenova02" build="1">
-  <device name="left_lower_leg_mc" type="embObjMotionControl">
+  <device name="left_lower_leg_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
       <xi:include href="hardware/electronics/left_lower_leg-ems7-eln.xml" itype="params"/>
       <xi:include href="hardware/mechanicals/left_lower_leg-ems7-mec.xml" itype="params"/>
@@ -60,4 +59,4 @@
     </group>
 
   </device>
-</devices>
+

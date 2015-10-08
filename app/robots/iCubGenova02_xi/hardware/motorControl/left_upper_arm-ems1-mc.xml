@@ -2,8 +2,7 @@
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
  <!-- Initialization file for EMS 1 - Left Upper Arm, 4 dof -->
 
-<devices robot="iCubGenova02" build="1">
-  <device name="left_upper_arm_mc" type="embObjMotionControl">
+  <device name="left_upper_arm_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
       <xi:include href="hardware/electronics/left_upper_arm-ems1-eln.xml" itype="params"/>
       <xi:include href="hardware/mechanicals/left_upper_arm-ems1-mec.xml" itype="params"/>
@@ -59,6 +58,6 @@
     </group>
 	
   </device>
-</devices>
+
 
 

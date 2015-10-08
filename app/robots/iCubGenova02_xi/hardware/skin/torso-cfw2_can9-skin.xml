@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-<devices robot="iCubGenova02" build="1"> 
-  <device name="torso_skin" type="canBusSkin">
+  <device name="torso_skin" type="canBusSkin" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
 
 	  <params robot="iCubGenova02" build="1">
@@ -13,7 +12,7 @@
       </params>
         <xi:include href="hardware/skin/torso-cfw2_can9-skinSpec.xml" itype="params"/> 
   </device>
-</devices>
+
 
 
 

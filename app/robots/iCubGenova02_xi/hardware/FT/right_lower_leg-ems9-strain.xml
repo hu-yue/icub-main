@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-<devices robot="iCubGenova02" build="1">
-  <device name="right_lower_leg_strain" type="embObjAnalogSensor">
+  <device name="right_lower_leg_strain" type="embObjAnalogSensor" xmlns:xi="http://www.w3.org/2001/XInclude">
     <xi:include href="general.xml" itype="params"/>
     <xi:include href="hardware/electronics/right_lower_leg-ems9-eln.xml" itype="params"/>
     <group name="GENERAL"> 
@@ -13,6 +12,6 @@
         <param name="UseCalibration">   1   </param>
     </group>
   </device>
-</devices>
+
 
 

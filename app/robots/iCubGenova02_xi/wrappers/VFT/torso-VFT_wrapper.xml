@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-<devices robot="iCubGenova02" build="1">
 	<device name="torso_VFTserver" type="virtualAnalogServer">
 		<param name="period">       10  				</param>
 		<param name="deviceId">     torso				</param>
@@ -23,6 +22,6 @@
 
 		<action phase="shutdown" level="5" type="detach" />
 	</device>
-</devices>
+
 
 

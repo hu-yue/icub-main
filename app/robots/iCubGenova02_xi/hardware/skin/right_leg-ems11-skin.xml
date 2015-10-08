@@ -3,8 +3,7 @@
 
  <!-- Initialization file for EMS 2 - Left Lower Arm, 12 dof plus skin-->
 
-<devices robot="iCubGenova02" build="1">
-  <device name="right_leg_skin" type="embObjSkin">
+  <device name="right_leg_skin" type="embObjSkin" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
 <xi:include href="hardware/electronics/right_lower_leg-ems11-eln.xml" itype="params"/>
 	<group name="patches">
@@ -13,5 +12,5 @@
       </group>
             <xi:include href="hardware/skin/right_leg-ems11-skinSpec.xml" itype="params"/> 
   </device>
-</devices>
+
   

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-<devices robot="iCubGenova02" build="1">
-  <device name="left_hand_mais" type="embObjAnalogSensor">
+  <device name="left_hand_mais" type="embObjAnalogSensor" xmlns:xi="http://www.w3.org/2001/XInclude">
      <xi:include href="general.xml" itype="params"/>
      <xi:include href="hardware/electronics/pc104.xml" itype="params"/>
      <xi:include href="hardware/electronics/left_lower_arm-ems2-eln.xml" itype="params"/>
@@ -13,4 +12,4 @@
         <param name="Period">		10	</param>
      </group>
   </device> 
-</devices>
+

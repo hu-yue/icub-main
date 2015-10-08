@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--		LEFT LEG ANALOG SENSOR
  L' analog sensor ha bisogno delle info presenti nella parte eln e di info per il suo wrapper, qui sotto -->
-<devices>
     <device name="right_arm_as_wrapperMais" type="analogServer">
         <param name="period">       10                  </param>
         <param name="deviceId">     right_hand           </param>
@@ -15,4 +14,4 @@
 
         <action phase="shutdown" level="5" type="detach" />
         </device>
-</devices>
+
