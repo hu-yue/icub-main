@@ -331,6 +331,32 @@ RobotInterface::Robot& RobotInterface::XMLReader::Private::readRobotTag(TiXmlEle
     // yDebug() << "Found robot [" << robot.name() << "] build [" << robot.build() << "] portprefix [" << robot.portprefix() << "]";
 
     for (TiXmlElement* childElem = robotElem->FirstChildElement(); childElem != 0; childElem = childElem->NextSiblingElement()) {
+        if (childElem->ValueStr().compare("xi:include") == 0)
+        {
+            std::string prtype;
+            if (childElem->QueryStringAttribute("itype", &prtype) != TIXML_SUCCESS) {
+                SYNTAX_ERROR(childElem->Row()) << "\"xi:include\" element should contain the a proper 'itype'  attribute ('devices' or 'params')";
+            }
+            if (prtype == "devices")
+            {
+                DeviceList childDevices = readDevices(childElem);
+                for (DeviceList::const_iterator it = childDevices.begin(); it != childDevices.end(); ++it) {
+                    robot.devices().push_back(*it);
+                }
+            }
+            else if (prtype == "params")
+            {
+                ParamList childParams = readParams(childElem);
+                for (ParamList::const_iterator it = childParams.begin(); it != childParams.end(); ++it) {
+                    robot.params().push_back(*it);
+                }
+            }
+            else
+            {
+                SYNTAX_ERROR(childElem->Row()) << "\"xi:include\" element should contain the a proper type  attribute ('devices' or 'params')";
+            }
+            continue;
+        }
         if (childElem->ValueStr().compare("device") == 0 || childElem->ValueStr().compare("devices") == 0) {
             DeviceList childDevices = readDevices(childElem);
             for (DeviceList::const_iterator it = childDevices.begin(); it != childDevices.end(); ++it) {
@@ -353,20 +379,35 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevices(TiXml
 {
     const std::string &valueStr = devicesElem->ValueStr();
 
-    if (valueStr.compare("device") != 0 &&
-        valueStr.compare("devices") != 0)
-    {
-        SYNTAX_ERROR(devicesElem->Row()) << "Expected \"device\" or \"devices\". Found" << valueStr;
-    }
-
     if (valueStr.compare("device") == 0) {
         // yDebug() << valueStr;
         DeviceList deviceList;
         deviceList.push_back(readDeviceTag(devicesElem));
         return deviceList;
     }
-    // "devices"
-    return readDevicesTag(devicesElem);
+    else if (valueStr.compare("devices") == 0) {
+        // "devices"
+        return readDevicesTag(devicesElem);
+    }
+    else if (valueStr.compare("xi:include") == 0)
+    {
+        std::string prtype;
+        if (devicesElem->QueryStringAttribute("itype", &prtype) != TIXML_SUCCESS) {
+            SYNTAX_ERROR(devicesElem->Row()) << "\"xi:include\" element should contain a proper \"itype\" attribute ('devices' or 'params')";
+        }
+        else if (prtype == "devices")
+        {
+            return readDevicesTag(devicesElem);
+        }
+        else
+        {
+            SYNTAX_ERROR(devicesElem->Row()) << "\"xi:include\" element should contain a proper \"itype\" attribute";
+        }
+    }
+    else
+    {
+        SYNTAX_ERROR(devicesElem->Row()) << "Expected \"device\" or \"devices\" or \"xi:include\". Found" << valueStr;
+    }
 }
 
 RobotInterface::Device RobotInterface::XMLReader::Private::readDeviceTag(TiXmlElement *deviceElem)
@@ -414,10 +455,6 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevicesTag(Ti
 {
     const std::string &valueStr = devicesElem->ValueStr();
 
-    if (valueStr.compare("devices") != 0) {
-        SYNTAX_ERROR(devicesElem->Row()) << "Expected \"devices\". Found" << valueStr;
-    }
-
     std::string filename;
     if (devicesElem->QueryStringAttribute("file", &filename) == TIXML_SUCCESS) {
         // yDebug() << "Found devices file [" << filename << "]";
@@ -428,6 +465,15 @@ RobotInterface::DeviceList RobotInterface::XMLReader::Private::readDevicesTag(Ti
         filename = path + "/" + filename;
 #endif //WIN32
         return readDevicesFile(filename);
+    }
+    else if (devicesElem->QueryStringAttribute("href", &filename) == TIXML_SUCCESS) {
+        // yDebug() << "Found devices file [" << filename << "]";
+        filename = rf.findFileByName(filename);
+        return readDevicesFile(filename);
+    }
+
+    if (valueStr.compare("devices") != 0) {
+        SYNTAX_ERROR(devicesElem->Row()) << "Expected \"devices\". Found" << valueStr;
     }
 
     std::string robotName;
@@ -705,10 +751,6 @@ RobotInterface::ParamList RobotInterface::XMLReader::Private::readParamsTag(TiXm
 {
     const std::string &valueStr = paramsElem->ValueStr();
 
-    if (valueStr.compare("params") != 0) {
-        SYNTAX_ERROR(paramsElem->Row()) << "Expected \"params\". Found" << valueStr;
-    }
-
     std::string filename;
     if (paramsElem->QueryStringAttribute("file", &filename) == TIXML_SUCCESS) {
         // yDebug() << "Found params file [" << filename << "]";
@@ -719,6 +761,15 @@ RobotInterface::ParamList RobotInterface::XMLReader::Private::readParamsTag(TiXm
         filename = path + "/" + filename;
 #endif //WIN32
         return readParamsFile(filename);
+    }
+    else if (paramsElem->QueryStringAttribute("href", &filename) == TIXML_SUCCESS) {
+        // yDebug() << "Found params file [" << filename << "]";
+        filename = rf.findFileByName(filename);
+        return readParamsFile(filename);
+    }
+
+    if (valueStr.compare("params") != 0) {
+        SYNTAX_ERROR(paramsElem->Row()) << "Expected \"params\". Found" << valueStr;
     }
 
     std::string robotName;
@@ -871,10 +922,6 @@ RobotInterface::ActionList RobotInterface::XMLReader::Private::readActionsTag(Ti
 {
     const std::string &valueStr = actionsElem->ValueStr();
 
-    if (valueStr.compare("actions") != 0) {
-        SYNTAX_ERROR(actionsElem->Row()) << "Expected \"actions\". Found" << valueStr;
-    }
-
     std::string filename;
     if (actionsElem->QueryStringAttribute("file", &filename) == TIXML_SUCCESS) {
         // yDebug() << "Found actions file [" << filename << "]";
@@ -885,6 +932,15 @@ RobotInterface::ActionList RobotInterface::XMLReader::Private::readActionsTag(Ti
         filename = path + "/" + filename;
 #endif //WIN32
         return readActionsFile(filename);
+    }
+    else if (actionsElem->QueryStringAttribute("href", &filename) == TIXML_SUCCESS) {
+        // yDebug() << "Found actions file [" << filename << "]";
+        filename = rf.findFileByName(filename);
+        return readActionsFile(filename);
+    }
+
+    if (valueStr.compare("actions") != 0) {
+        SYNTAX_ERROR(actionsElem->Row()) << "Expected \"actions\". Found" << valueStr;
     }
 
     std::string robotName;
