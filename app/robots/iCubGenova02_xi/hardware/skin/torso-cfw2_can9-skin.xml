@@ -4,12 +4,12 @@
   <device name="torso_skin" type="canBusSkin" xmlns:xi="http://www.w3.org/2001/XInclude">
       <xi:include href="general.xml" itype="params"/>
 
-	  <params robot="iCubGenova02" build="1">
+	  
         <param name="canDeviceNum"> 9         </param>  
         <param name="skinCanIds">   7 8 9 10  </param>   
         <param name="period"> 10              </param>
         <param name="canbusDevice"> cfw2can   </param>
-      </params>
+      
         <xi:include href="hardware/skin/torso-cfw2_can9-skinSpec.xml" itype="params"/> 
   </device>
 

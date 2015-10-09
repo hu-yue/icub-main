@@ -2,7 +2,7 @@
 <!DOCTYPE robot PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
 <robot name="iCubGenova02" build="1" portprefix="icub" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <xi:include href="hardware/electronics/pc104.xml" itype ="devices"/>
+    <xi:include href="hardware/electronics/pc104.xml" itype ="params"/>
 
     <!-- CARTESIANS --> 
     <xi:include href="cartesian/left_arm-cartesian.xml" itype ="devices"/>

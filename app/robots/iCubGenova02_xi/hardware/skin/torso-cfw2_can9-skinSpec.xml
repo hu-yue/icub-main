@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE params PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-<params robot="iCubGenova02" build="1">
+
 
         <group name="defaultCfgBoard">
             <param name="period">        50  </param> 
@@ -19,4 +19,4 @@
             <param name="cdcOffset">       0x2200  </param>
         </group>
         
-</params>
+
