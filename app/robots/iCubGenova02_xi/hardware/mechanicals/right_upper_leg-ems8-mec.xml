@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE params PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-
+<params>
     <group name="GENERAL">
         <param name="MotioncontrolVersion">  2 </param>
         <param name="Joints"> 4 </param> 
@@ -41,5 +41,5 @@
         <param name="Shifts">              	8	8		8		8	</param>
         <param name="Timeout">             	100	100		100		100	</param>
     </group>
-
+</params>
 

@@ -73,7 +73,11 @@
     <xi:include href="hardware/skin/torso-cfw2_can9-skin.xml" itype ="devices"/>
     <xi:include href="hardware/skin/left_arm-ems2-skin.xml" itype ="devices"/>
     <xi:include href="hardware/skin/right_arm-ems4-skin.xml" itype ="devices"/>
-
+   <!--   <xi:include href="wrappers/skin/left_leg-skin_wrapper.xml" itype ="devices"/>-->
+   <!--   <xi:include href="wrappers/skin/right_leg-skin_wrapper.xml" itype ="devices"/>-->
+   <!--   <xi:include href="hardware/skin/left_leg-ems10-skin.xml" itype ="devices"/>-->
+   <!--   <xi:include href="hardware/skin/right_leg-ems11-skin.xml" itype ="devices"/>-->
+   
     <!--  CALIBRATORS -->
     <xi:include href="calibrators/left_arm-calib.xml" itype ="devices"/>
     <xi:include href="calibrators/right_arm-calib.xml" itype ="devices"/> 
@@ -83,9 +87,4 @@
     <xi:include href="calibrators/head-calib.xml" itype ="devices"/> 
     </robot> 
 
-   <!--  <xi:include href="wrappers/skin/left_leg-skin_wrapper.xml" itype ="devices"/>-->
-   <!--   <xi:include href="wrappers/skin/right_leg-skin_wrapper.xml" itype ="devices"/>-->
 
-
-   <!--   <xi:include href="hardware/skin/left_leg-ems10-skin.xml" itype ="devices"/>-->
-   <!--   <xi:include href="hardware/skin/right_leg-ems11-skin.xml" itype ="devices"/>-->

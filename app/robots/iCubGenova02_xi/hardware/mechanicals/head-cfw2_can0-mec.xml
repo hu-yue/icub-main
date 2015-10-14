@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE params PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
-
+<params>
     <group name="GENERAL">
         <param name="MotioncontrolVersion">  1 </param>
         <param name="Joints"> 6  </param> <!-- the number of joints of the robot part -->
@@ -53,5 +53,5 @@
         <param name="stictionUp">   0             0             0             0             0             0             </param>       
         <param name="stictionDwn">  0             0             0             0             0             0             </param>       
     </group>
-
+</params>
 

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
- <!-- Initialization file for EMS 5 - Torso, 3 dof -->
-
-  <device name="torso_mc" type="embObjMotionControl">
-      <xi:include href="general.xml" itype="params"/>
-      <xi:include href="hardware/electronics/torso-ems5-eln.xml" itype="params"/>
-      <xi:include href="hardware/mechanicals/torso-ems5-mec.xml" itype="params"/>
+  <device name="torso_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:include href="../../general.xml" itype="params" />
+      <xi:include href="../../hardware/electronics/torso-ems5-eln.xml" itype="params" />
+      <xi:include href="../../hardware/mechanicals/torso-ems5-mec.xml" itype="params" />
 
     <group name="LIMITS">
         <param name="Max">              50            30            70          </param>

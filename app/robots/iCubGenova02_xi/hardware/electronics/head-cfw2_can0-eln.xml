@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE params PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
+<params>
 
-
- <!--  chissà se funge??? -->
     <param name="canbusdevice">  cfw2can </param>
     <group name="CAN">
         <param name="CanDeviceNum">         0       </param>
@@ -26,4 +25,4 @@
         <param name="broadcast_rotor_vel_acc">	0             0             0             0             0             0     </param>
     </group>
 
-
+</params>

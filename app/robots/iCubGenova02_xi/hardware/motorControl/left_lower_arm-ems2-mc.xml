@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
- <!-- Initialization file for EMS 2 - Left Lower Arm, 12 dof plus skin-->
-
   <device name="left_lower_arm_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
-      <xi:include href="general.xml" itype="params"/>
-      <xi:include href="hardware/electronics/left_lower_arm-ems2-eln.xml" itype="params"/>
-      <xi:include href="hardware/mechanicals/left_lower_arm-ems2-mec.xml" itype="params"/>
+      <xi:include href="../../general.xml" itype="params"/>
+      <xi:include href="../../hardware/electronics/left_lower_arm-ems2-eln.xml" itype="params" />
+      <xi:include href="../../hardware/mechanicals/left_lower_arm-ems2-mec.xml" itype="params" />
     
 
     <group name="LIMITS">

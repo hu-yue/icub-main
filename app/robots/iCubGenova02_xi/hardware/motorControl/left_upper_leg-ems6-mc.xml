@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE devices PUBLIC "-//YARP//DTD robotInterface 1.0//EN" "http://www.icub.org/DTD/robotInterfaceV1.0.dtd">
 
- <!-- Initialization file for EMS 6 - Left Upper Leg, 4 dof -->
-
   <device name="left_upper_leg_mc" type="embObjMotionControl" xmlns:xi="http://www.w3.org/2001/XInclude">
-      <xi:include href="general.xml" itype="params"/>
-      <xi:include href="hardware/electronics/left_upper_leg-ems6-eln.xml" itype="params"/>
-      <xi:include href="hardware/mechanicals/left_upper_leg-ems6-mec.xml" itype="params"/>
+      <xi:include href="../../general.xml" itype="params"/>
+      <xi:include href="../../hardware/electronics/left_upper_leg-ems6-eln.xml" itype="params" />
+      <xi:include href="../../hardware/mechanicals/left_upper_leg-ems6-mec.xml" itype="params" />
 
     <group name="LIMITS">
         <param name="Max">                      85            90            70            0     </param>
